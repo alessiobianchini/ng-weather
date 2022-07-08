@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { ButtonConfig } from 'app/models/button-config.model';
 import { ButtonState } from 'app/models/button-state.enum';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
@@ -8,6 +8,8 @@ import { BehaviorSubject, Observable, Subscription } from 'rxjs';
   templateUrl: './dynamic-button.component.html'
 })
 export class DynamicButtonComponent implements OnInit, OnDestroy {
+  @Input()
+  useTemplate = false;
   config: ButtonConfig;
   @Output() buttonClicked: EventEmitter<string> = new EventEmitter<string>();
   public isDisabled: boolean = false;

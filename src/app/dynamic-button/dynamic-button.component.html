@@ -1,3 +1,9 @@
-<button type="button" [ngStyle]="config.styles" [ngClass]="config.classes" (click)="onBtnClick()" [disabled]="isDisabled">
-  {{ config.text }}
+<button type="button" [ngStyle]="config.styles" [ngClass]="config.classes" (click)="onBtnClick()"
+  [disabled]="isDisabled">
+  <ng-container *ngIf="!useTemplate">
+    {{ config.text }}
+  </ng-container>
+  <ng-container *ngIf="useTemplate">
+    <ng-content></ng-content>
+  </ng-container>
 </button>
