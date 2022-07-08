@@ -1,0 +1,24 @@
+.holder {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  display: block;
+  z-index: 1;
+  background: white;
+  display: inline-block;
+  width: 50%;
+  max-width: 50%;
+  max-height: 30%;
+  overflow: auto;
+}
+
+input:focus+.dropdown {
+  display: block;
+}
+
+p:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}

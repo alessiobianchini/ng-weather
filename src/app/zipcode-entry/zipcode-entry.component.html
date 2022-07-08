@@ -1,8 +1,7 @@
 <div class="well">
   <h2>Enter a zipcode:</h2>
-  <input type="text" #zipcode placeholder="Zipcode" class="form-control">
+  <input style="margin-bottom: 10px;" type="text" #zipcode placeholder="Zipcode" class="form-control">
+  <app-country-auto-filter (countrySelected)="countrySelected($event)"></app-country-auto-filter>
   <br>
-  <button class="btn btn-primary" (click)="addLocation(zipcode.value)" >
-    Add location
-  </button>
+  <app-dynamic-button #button (buttonClicked)="addLocation(zipcode.value)"></app-dynamic-button>
 </div>

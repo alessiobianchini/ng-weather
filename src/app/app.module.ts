@@ -14,6 +14,9 @@ import {routing} from "./app.routing";
 import {HttpClientModule} from "@angular/common/http";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { DynamicButtonComponent } from './dynamic-button/dynamic-button.component';
+import { CountryAutoFilterComponent } from './country-auto-filter/country-auto-filter.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { environment } from '../environments/environment';
     ZipcodeEntryComponent,
     ForecastsListComponent,
     CurrentConditionsComponent,
-    MainPageComponent
+    MainPageComponent,
+    DynamicButtonComponent,
+    CountryAutoFilterComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

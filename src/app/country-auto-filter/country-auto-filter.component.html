@@ -1,0 +1,8 @@
+<div class="holder">
+  <input #searchInput type="text" class="form-control" placeholder="Country" [(ngModel)]="searchTerm"
+    (keyup)="searchOnKeyUp($event)" (focus)="searchOnKeyUp($event)"  />
+</div>
+<div class="dropdown" #countiesDataList *ngIf="showDropdown">
+  <p *ngFor="let sr of filteredCountries" [highlight]="searchTerm" [currentValue]="sr.name"
+    style="padding-left: 5px;padding-right: 5px;" (click)="countryClicked(sr)"></p>
+</div>
