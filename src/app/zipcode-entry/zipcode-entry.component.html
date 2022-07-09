@@ -3,5 +3,15 @@
   <input style="margin-bottom: 10px;" type="text" #zipcode placeholder="Zipcode" class="form-control">
   <app-country-auto-filter (countrySelected)="countrySelected($event)"></app-country-auto-filter>
   <br>
-  <app-dynamic-button #button (buttonClicked)="addLocation(zipcode.value)"></app-dynamic-button>
+  <app-dynamic-button #button (buttonClicked)="addLocation(zipcode.value)" [useTemplate]="true">
+    <ng-container addLocationTemplate>
+      <span>Add location</span>
+    </ng-container>
+    <ng-container addingTemplate>
+      <span disabled>Adding...</span>
+    </ng-container>
+    <ng-container doneTemplate>
+      <span disabled>Done</span>
+    </ng-container>
+  </app-dynamic-button>
 </div>

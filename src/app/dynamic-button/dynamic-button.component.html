@@ -1,9 +1,19 @@
 <button type="button" [ngStyle]="config.styles" [ngClass]="config.classes" (click)="onBtnClick()"
-  [disabled]="isDisabled">
+  [disabled]="config.disabled">
   <ng-container *ngIf="!useTemplate">
     {{ config.text }}
   </ng-container>
   <ng-container *ngIf="useTemplate">
-    <ng-content></ng-content>
+    <ng-container [ngSwitch]="currentState">
+      <ng-container *ngSwitchCase="buttonStateEnum.AddLocation">
+        <ng-content select="[addLocationTemplate]"></ng-content>
+      </ng-container>
+      <ng-container *ngSwitchCase="buttonStateEnum.Adding">
+        <ng-content select="[addingTemplate]"></ng-content>
+      </ng-container>
+      <ng-container *ngSwitchCase="buttonStateEnum.Done">
+        <ng-content select="[doneTemplate]"></ng-content>
+      </ng-container>
+    </ng-container>
   </ng-container>
 </button>
